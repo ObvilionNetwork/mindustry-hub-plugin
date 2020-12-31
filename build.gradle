@@ -6,13 +6,14 @@ sourceCompatibility = 1.8
 
 sourceSets.main.java.srcDirs = ["src"]
 
-repositories{
+repositories {
     mavenCentral()
-    maven{ url 'https://www.jitpack.io' }
+    maven {
+        url 'https://www.jitpack.io'
+    }
 }
 
 ext{
-    //the build number that this plugin is made for
     mindustryVersion = 'v120'
 }
 
@@ -23,11 +24,11 @@ dependencies{
 
 jar{
     archiveFileName = "${project.archivesBaseName}.jar"
-    from{
+    from {
         configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
     }
 
-    from(rootDir){
+    from(rootDir) {
         include "plugin.json"
     }
 }
