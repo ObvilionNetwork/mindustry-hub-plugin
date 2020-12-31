@@ -16,6 +16,7 @@ public class HubPlugin extends Plugin {
     @Override
     public void init() {
         config.init();
+        Log.info(config.getAll().get(0)[0]);
 
         Events.on(WaveEvent.class, event -> {
 
