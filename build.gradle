@@ -13,22 +13,50 @@ repositories {
     }
 }
 
-ext{
+ext {
     mindustryVersion = 'v120'
+    serverLink = "https://github.com/Anuken/Mindustry/releases/download/$mindustryVersion/server-release.jar"
 }
 
-dependencies{
+dependencies {
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
 }
 
-jar{
+task run(type: JavaExec) {
+    /* Download server.jar from link */
+    def server = new File('server/server.jar')
+    if (!server.exists()) {
+        new URL("$serverLink").withInputStream{ i -> server.withOutputStream{ it << i }}
+    }
+
+    /* Builds a JAR file */
+    jar;
+
+    /* Copy this file into server mods folder */
+    copy {
+        from file("build/libs/${project.archivesBaseName}.jar")
+        into file("server/config/mods")
+    }
+
+    /* Add server to classpath for run */
+    classpath = files('server/server.jar')
+    classpath += sourceSets.main.runtimeClasspath
+
+    /* Set working dir for server */
+    workingDir = file('server')
+
+    /* Main class for server running */
+    main = "mindustry.server.ServerLauncher"
+}
+
+jar {
     archiveFileName = "${project.archivesBaseName}.jar"
     from {
         configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
     }
 
     from('src/resources') {
-        include "*"
+        include "**"
     }
 }
