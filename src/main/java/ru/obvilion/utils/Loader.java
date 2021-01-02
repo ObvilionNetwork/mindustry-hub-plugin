@@ -12,7 +12,6 @@ public class Loader {
         HubPlugin.config.init();
 
         new File(HubPlugin.pluginDir, "lang").mkdir();
-
         HubPlugin.lang = new Lang(
             HubPlugin.config.get("language")
         );
@@ -20,5 +19,7 @@ public class Loader {
         for (String lang : Lang.langList) {
             new Lang(lang).init();
         }
+
+        EventHelper.init();
     }
 }

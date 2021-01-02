@@ -23,6 +23,7 @@ dependencies {
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
 }
 
+// TODO: text input does work
 task run(type: JavaExec) {
     /* Download server.jar from link */
     def server = new File('server/server.jar')
