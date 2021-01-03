@@ -4,6 +4,11 @@ import arc.Events;
 import arc.util.*;
 
 import mindustry.Vars;
+import mindustry.content.Blocks;
+import mindustry.game.EventType;
+import mindustry.game.Rules;
+import mindustry.gen.Call;
+import mindustry.gen.Player;
 import mindustry.mod.*;
 
 import ru.obvilion.config.Config;
@@ -23,8 +28,28 @@ public class HubPlugin extends Plugin {
     public void init() {
         Loader.init();
 
+        Events.on(EventType.PlayEvent.class, event -> {
+            Vars.state.rules.waves = false;
+            Vars.state.rules.revealedBlocks.addAll(
+                Blocks.launchPad, Blocks.launchPadLarge, Blocks.interplanetaryAccelerator,
+                Blocks.resupplyPoint, Blocks.illuminator, Blocks.scrapWall,
+                Blocks.scrapWallGigantic, Blocks.scrapWallHuge, Blocks.scrapWallLarge
+            );
+        });
+
+        Events.on(EventType.PlayerJoin.class, event -> {
+            final Player player = event.player;
+            final Rules rules = Vars.state.rules.copy();
+
+            if (!player.admin) {
+                rules.bannedBlocks.addAll(Vars.content.blocks());
+            }
+
+            Call.setRules(player.con, rules);
+        });
+
         Events.on(PlayerMoveEvent.class, event -> {
-            Log.info(event);
+
         });
 
         Vars.netServer.admins.addActionFilter(action -> {

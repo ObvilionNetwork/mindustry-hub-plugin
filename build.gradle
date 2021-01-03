@@ -14,7 +14,7 @@ repositories {
 }
 
 ext {
-    mindustryVersion = 'v120'
+    mindustryVersion = 'v122.1'
     serverLink = "https://github.com/Anuken/Mindustry/releases/download/$mindustryVersion/server-release.jar"
 }
 
@@ -23,8 +23,7 @@ dependencies {
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
 }
 
-// TODO: text input does work
-task run(type: JavaExec) {
+task toServer() {
     /* Download server.jar from link */
     def server = new File('server/server.jar')
     if (!server.exists()) {
@@ -39,16 +38,6 @@ task run(type: JavaExec) {
         from file("build/libs/${project.archivesBaseName}.jar")
         into file("server/config/mods")
     }
-
-    /* Add server to classpath for run */
-    classpath = files('server/server.jar')
-    classpath += sourceSets.main.runtimeClasspath
-
-    /* Set working dir for server */
-    workingDir = file('server')
-
-    /* Main class for server running */
-    main = "mindustry.server.ServerLauncher"
 }
 
 jar {

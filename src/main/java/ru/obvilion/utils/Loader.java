@@ -20,6 +20,7 @@ public class Loader {
             new Lang(lang).init();
         }
 
+        AntiBuild.init();
         EventHelper.init();
     }
 }
