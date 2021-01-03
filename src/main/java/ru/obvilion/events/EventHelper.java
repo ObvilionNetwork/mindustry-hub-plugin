@@ -1,11 +1,9 @@
-package ru.obvilion.utils;
+package ru.obvilion.events;
 
 import arc.Events;
 import mindustry.game.EventType;
 import mindustry.gen.Groups;
 import mindustry.gen.Player;
-
-import ru.obvilion.events.PlayerMoveEvent;
 
 public class EventHelper {
     public static void init() {

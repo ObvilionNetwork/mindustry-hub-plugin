@@ -12,10 +12,10 @@ import mindustry.gen.Player;
 import ru.obvilion.HubPlugin;
 import ru.obvilion.config.Config;
 import ru.obvilion.config.Lang;
+import ru.obvilion.events.EventHelper;
 import ru.obvilion.events.PlayerMoveEvent;
 import ru.obvilion.servers.Server;
-
-import java.io.File;
+import ru.obvilion.servers.ServerHelper;
 
 public class Loader {
     public static void init() {
@@ -33,7 +33,7 @@ public class Loader {
 
         initEvents();
 
-        Server.init();
+        ServerHelper.init();
         AntiBuild.init();
         EventHelper.init();
     }
@@ -61,7 +61,7 @@ public class Loader {
 
         Events.on(PlayerMoveEvent.class, event -> {
             final Player player = event.player;
-            final boolean inPortal = Server.checkAll(
+            final boolean inPortal = ServerHelper.checkAll(
                 (int) player.x / 8,
                 (int) player.y / 8
             );
