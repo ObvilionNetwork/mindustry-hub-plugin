@@ -1,5 +1,6 @@
 package ru.obvilion;
 
+import arc.files.Fi;
 import arc.util.*;
 import mindustry.mod.*;
 
@@ -7,10 +8,8 @@ import ru.obvilion.config.Config;
 import ru.obvilion.config.Lang;
 import ru.obvilion.utils.Loader;
 
-import java.io.File;
-
 public class HubPlugin extends Plugin {
-    public static final File pluginDir = new File("config/mods/ObvilionHub");
+    public static final Fi pluginDir = new Fi("./config/mods/ObvilionHub");
 
     public static Config config;
     public static Lang lang;

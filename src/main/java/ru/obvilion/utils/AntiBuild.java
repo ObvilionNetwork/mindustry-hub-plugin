@@ -1,6 +1,5 @@
 package ru.obvilion.utils;
 
-import arc.util.Log;
 import mindustry.Vars;
 import mindustry.gen.Player;
 import mindustry.net.Administration.PlayerAction;
@@ -8,10 +7,6 @@ import ru.obvilion.HubPlugin;
 
 public class AntiBuild {
     public static boolean adminCanBuild = false;
-
-    private AntiBuild() {
-        throw new IllegalStateException("Utility class");
-    }
 
     public static void init() {
         adminCanBuild = Boolean.parseBoolean(
