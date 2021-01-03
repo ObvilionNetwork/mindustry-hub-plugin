@@ -5,9 +5,9 @@ import mindustry.game.EventType;
 import mindustry.gen.Groups;
 import mindustry.gen.Player;
 
-public class EventHelper {
+public class EventsHelper {
     public static void init() {
-        Events.run(EventType.Trigger.update, EventHelper::tick);
+        Events.run(EventType.Trigger.update, EventsHelper::tick);
     }
 
     public static void tick() {
