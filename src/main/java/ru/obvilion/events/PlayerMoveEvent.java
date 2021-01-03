@@ -28,6 +28,10 @@ public class PlayerMoveEvent {
         return playersX.get(id) != (int) player.x || playersY.get(id) != (int) player.y;
     }
 
+    public static int find(Player player) {
+        return players.indexOf(player.uuid());
+    }
+
     public static int getPlayerX(Player player) {
         final int id = find(player);
         if (id == -1) return (int) player.x;
@@ -40,10 +44,6 @@ public class PlayerMoveEvent {
         if (id == -1) return (int) player.y;
 
         return playersY.get(id);
-    }
-
-    public static int find(Player player) {
-        return players.indexOf(player.uuid());
     }
 
     public static void update() {
