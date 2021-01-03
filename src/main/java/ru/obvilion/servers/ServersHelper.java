@@ -6,7 +6,7 @@ import arc.util.Log;
 import arc.util.io.PropertiesUtils;
 import ru.obvilion.HubPlugin;
 
-public class ServerHelper {
+public class ServersHelper {
     public static Seq<Server> servers = new Seq<>();
 
     public static boolean checkAll(int x, int y) {
