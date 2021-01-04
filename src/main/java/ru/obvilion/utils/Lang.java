@@ -17,12 +17,12 @@ public class Lang {
     public static void init() {
         generate();
 
-        selectedLang = Config.get("lang");
+        selectedLang = Config.get("language");
         file = langDir.child(selectedLang + ".properties");
 
         properties = new ObjectMap<>();
         PropertiesUtils.load(
-            properties, HubPlugin.pluginDir.child("servers.properties").reader()
+            properties, file.reader()
         );
     }
 

@@ -1,6 +1,7 @@
 package ru.obvilion.utils;
 
 import arc.Events;
+import arc.files.Fi;
 import mindustry.Vars;
 import mindustry.content.Blocks;
 import mindustry.game.EventType;
@@ -17,6 +18,9 @@ public class Loader {
     public static void init() {
         Config.init();
         Lang.init();
+
+        final Fi map = new Fi("config/maps/Hub.msav");
+        if (!map.exists()) ResourceUtil.copy("Hub.msav", map);
 
         initEvents();
 

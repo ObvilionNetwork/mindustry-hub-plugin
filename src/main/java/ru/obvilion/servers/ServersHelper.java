@@ -1,10 +1,13 @@
 package ru.obvilion.servers;
 
+import arc.files.Fi;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.io.PropertiesUtils;
 import ru.obvilion.HubPlugin;
+import ru.obvilion.utils.Lang;
+import ru.obvilion.utils.ResourceUtil;
 
 public class ServersHelper {
     public static Seq<Server> servers = new Seq<>();
@@ -24,9 +27,12 @@ public class ServersHelper {
     }
 
     public static void init() {
+        final Fi serv = HubPlugin.pluginDir.child("servers.properties");
+        if (!serv.exists()) ResourceUtil.copy("servers.properties", serv);
+
         final ObjectMap<String, String> all = new ObjectMap<>();
         PropertiesUtils.load(
-                all, HubPlugin.pluginDir.child("servers.properties").reader()
+             all, HubPlugin.pluginDir.child("servers.properties").reader()
         );
 
         final int size = all.size / 4;
@@ -58,5 +64,7 @@ public class ServersHelper {
                     new Server(name, ip, port, block, blockX, blockY)
             );
         }
+
+        Log.info("Loaded @ server portals.", servers.size);
     }
 }

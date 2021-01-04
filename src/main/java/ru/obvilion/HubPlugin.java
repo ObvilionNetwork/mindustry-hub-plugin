@@ -1,7 +1,6 @@
 package ru.obvilion;
 
 import arc.files.Fi;
-import arc.struct.ObjectMap;
 import arc.util.*;
 import mindustry.mod.*;
 
@@ -32,7 +31,7 @@ public class HubPlugin extends Plugin {
             }
 
             if (arg[0].equals("version")) {
-                Log.info("ObvilionHub v@ by Fatonn", VERSION);
+                Log.info("ObvilionNetworkHub v@ by Fatonn", VERSION);
                 Log.info("> Github link: https://github.com/ObvilionNetwork/mindustry-hub-plugin");
                 Log.info("> Discord server link: https://discord.gg/cg82mjh");
                 return;

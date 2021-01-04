@@ -7,7 +7,7 @@ import arc.util.io.PropertiesUtils;
 import ru.obvilion.HubPlugin;
 
 public class Config {
-    public static final String fileName = "config.propeties";
+    public static final String fileName = "config.properties";
     public static final Fi file = HubPlugin.pluginDir.child(fileName);
 
     private static ObjectMap<String, String> config;
@@ -23,7 +23,7 @@ public class Config {
 
         config = new ObjectMap<>();
         PropertiesUtils.load(
-                config, HubPlugin.pluginDir.child("servers.properties").reader()
+                config, file.reader()
         );
     }
 
