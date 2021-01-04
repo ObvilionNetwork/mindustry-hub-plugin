@@ -9,13 +9,13 @@ import ru.obvilion.HubPlugin;
 public class ServersHelper {
     public static Seq<Server> servers = new Seq<>();
 
-    public static boolean checkAll(int x, int y) {
-        boolean result = false;
+    public static Server checkAll(int x, int y) {
+        Server result = null;
         for (Server serv : servers) {
             final boolean ok = serv.check(x, y);
 
             if (ok) {
-                result = true;
+                result = serv;
                 break;
             }
         }
