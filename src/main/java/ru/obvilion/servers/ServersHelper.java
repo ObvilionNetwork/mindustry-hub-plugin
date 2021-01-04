@@ -6,11 +6,10 @@ import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.io.PropertiesUtils;
 import ru.obvilion.HubPlugin;
-import ru.obvilion.utils.Lang;
 import ru.obvilion.utils.ResourceUtil;
 
 public class ServersHelper {
-    public static Seq<Server> servers = new Seq<>();
+    public static Seq<Server> servers;
 
     public static Server checkAll(int x, int y) {
         Server result = null;
@@ -27,6 +26,8 @@ public class ServersHelper {
     }
 
     public static void init() {
+        servers = new Seq<>();
+
         final Fi serv = HubPlugin.pluginDir.child("servers.properties");
         if (!serv.exists()) ResourceUtil.copy("servers.properties", serv);
 
