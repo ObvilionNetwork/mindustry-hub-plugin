@@ -6,7 +6,9 @@
 This plugin adds HUB to your server.
 
 ## The servers in the list cant use this plugin
-  - mindustry.ru
+
+
+- mindustry.ru
 
 [discord-invite]: https://discord.gg/cg82mjh
 [discord-shield]: https://discord.com/api/guilds/633294014048632832/widget.png
