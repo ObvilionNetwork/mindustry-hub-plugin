@@ -18,16 +18,12 @@ public class AntiBuild {
             return false;
         }
 
-        if (action.rotation != -1 && !canBuild) {
-            return false;
-        }
-
         /*
         if (action.config != null) {
             // TODO?
         }
         */
 
-        return true;
+        return action.rotation != -1 && !canBuild;
     }
 }
