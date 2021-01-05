@@ -3,6 +3,7 @@ package ru.obvilion.utils;
 import mindustry.Vars;
 import mindustry.gen.Player;
 import mindustry.net.Administration.PlayerAction;
+import ru.obvilion.config.Config;
 
 public class AntiBuild {
     public static void init() {
@@ -21,9 +22,11 @@ public class AntiBuild {
             return false;
         }
 
+        /*
         if (action.config != null) {
             // TODO?
         }
+        */
 
         return true;
     }

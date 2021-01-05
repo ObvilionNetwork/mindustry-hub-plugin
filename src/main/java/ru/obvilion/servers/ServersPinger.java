@@ -4,7 +4,7 @@ import arc.Core;
 import arc.util.Timer;
 import mindustry.Vars;
 import mindustry.gen.Call;
-import ru.obvilion.utils.Lang;
+import ru.obvilion.config.Lang;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

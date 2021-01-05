@@ -8,10 +8,14 @@ public class Server {
     public final String name;
     public final String ip;
     public final int port;
-    public final int xPos, yPos;
+    public final int xPos;
+    public final int yPos;
 
-    public final int lowBorderX, lowBorderY;
-    public final int upBorderX, upBorderY;
+    public final int lowBorderX;
+    public final int lowBorderY;
+
+    public final int upBorderX;
+    public final int upBorderY;
 
     public Server(String name, String ip, int port, String blockName, int blockX, int blockY) {
         this.block = Vars.content.block(blockName);

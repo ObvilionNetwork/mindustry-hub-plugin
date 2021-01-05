@@ -1,8 +1,9 @@
 package ru.obvilion;
 
 import arc.files.Fi;
-import arc.util.*;
-import mindustry.mod.*;
+import arc.util.Log;
+import arc.util.CommandHandler;
+import mindustry.mod.Plugin;
 
 import ru.obvilion.utils.Loader;
 
@@ -40,10 +41,5 @@ public class HubPlugin extends Plugin {
 
             Log.info("Command not found!");
         });
-    }
-
-    @Override
-    public void registerClientCommands(CommandHandler handler) {
-        // Hmmmm... Why is this necessary?
     }
 }

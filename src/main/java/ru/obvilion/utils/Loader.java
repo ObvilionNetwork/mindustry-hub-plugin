@@ -9,6 +9,8 @@ import mindustry.game.Rules;
 import mindustry.gen.Call;
 import mindustry.gen.Player;
 
+import ru.obvilion.config.Config;
+import ru.obvilion.config.Lang;
 import ru.obvilion.events.EventsHelper;
 import ru.obvilion.events.PlayerMoveEvent;
 import ru.obvilion.servers.Server;
