@@ -4,16 +4,11 @@ import arc.files.Fi;
 import arc.util.*;
 import mindustry.mod.*;
 
-import ru.obvilion.utils.Config;
-import ru.obvilion.utils.Lang;
 import ru.obvilion.utils.Loader;
 
 public class HubPlugin extends Plugin {
     public static final Fi pluginDir = new Fi("./config/mods/ObvilionHub");
     public static final String VERSION = "0.1";
-
-    public static Config config;
-    public static Lang lang;
 
     @Override
     public void init() {
@@ -49,6 +44,6 @@ public class HubPlugin extends Plugin {
 
     @Override
     public void registerClientCommands(CommandHandler handler) {
-        // TODO
+        // Hmmmm... Why is this necessary?
     }
 }
