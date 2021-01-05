@@ -13,8 +13,11 @@ import ru.obvilion.events.EventsHelper;
 import ru.obvilion.events.PlayerMoveEvent;
 import ru.obvilion.servers.Server;
 import ru.obvilion.servers.ServersHelper;
+import ru.obvilion.servers.ServersPinger;
 
 public class Loader {
+    public static boolean firstInit = true;
+
     public static void init() {
         Config.init();
         Lang.init();
@@ -22,11 +25,15 @@ public class Loader {
         final Fi map = new Fi("config/maps/Hub.msav");
         if (!map.exists()) ResourceUtil.copy("Hub.msav", map);
 
-        initEvents();
-
         ServersHelper.init();
         AntiBuild.init();
         EventsHelper.init();
+        ServersPinger.init();
+
+        if (firstInit) {
+            initEvents();
+            firstInit = false;
+        }
     }
 
     public static void initEvents() {
@@ -48,6 +55,14 @@ public class Loader {
             }
 
             Call.setRules(player.con, rules);
+
+            ServersPinger.update();
+            ServersHelper.servers.forEach(server -> {
+                final int x = (server.xPos * 8 + (server.block.size - 1) * 4);
+                final int y = server.yPos * 8 + (server.block.size - 1) * 8 + 8;
+
+                Call.label(server.name, 200000, x, y);
+            });
         });
 
         Events.on(PlayerMoveEvent.class, event -> {
