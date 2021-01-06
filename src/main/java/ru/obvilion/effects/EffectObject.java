@@ -27,6 +27,6 @@ public class EffectObject {
     }
 
     public void draw() {
-        Call.effect(effect, xPos * 8 - 4, yPos * 8 - 4, rotation, color);
+        Call.effect(effect, xPos * 8, yPos * 8, rotation, color);
     }
 }
