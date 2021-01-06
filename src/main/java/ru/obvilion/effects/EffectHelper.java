@@ -83,25 +83,26 @@ public class EffectHelper {
     }
 
     public static void onMove(Player player) {
-        on("onMove", player);
+        final String position = (player.x / 8) + "," + (player.y / 8);
+        on("onMove", player, position);
     }
 
     public static void on(String key, Player player, String position) {
         final String[] positions = position.split(",");
-        final int x = Integer.parseInt(positions[0]);
-        final int y = Integer.parseInt(positions[1]);
+        final float x = Float.parseFloat(positions[0]);
+        final float y = Float.parseFloat(positions[1]);
 
-        on(key, player, x, y);
+        on(key, x, y);
     }
 
     public static void on(String key, Player player) {
         final int x = (int) (player.x / 8);
         final int y = (int) (player.y / 8);
 
-        on(key, player, x, y);
+        on(key, x, y);
     }
 
-    public static void on(String key, Player player, int x, int y) {
+    public static void on(String key, float x, float y) {
         final String name = properties.get(key + ".name", "none");
         if (name.equals("none")) return;
 
