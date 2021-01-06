@@ -2,6 +2,6 @@
   "name": "ObvilionHub",
   "author": "FatonnDev",
   "main": "ru.obvilion.HubPlugin",
-  "description": "TODO",
-  "version": "0.0.1"
+  "description": "Hub plugin for Mindustry",
+  "version": "0.2"
 }
