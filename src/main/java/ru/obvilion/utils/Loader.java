@@ -2,6 +2,7 @@ package ru.obvilion.utils;
 
 import arc.Events;
 import arc.files.Fi;
+import javafx.scene.effect.Effect;
 import mindustry.Vars;
 import mindustry.content.Blocks;
 import mindustry.game.EventType;
@@ -11,6 +12,7 @@ import mindustry.gen.Player;
 
 import ru.obvilion.config.Config;
 import ru.obvilion.config.Lang;
+import ru.obvilion.effects.EffectHelper;
 import ru.obvilion.events.EventsHelper;
 import ru.obvilion.events.PlayerMoveEvent;
 import ru.obvilion.servers.Server;
@@ -31,6 +33,7 @@ public class Loader {
         AntiBuild.init();
         EventsHelper.init();
         ServersPinger.init();
+        EffectHelper.init();
 
         if (firstInit) {
             initEvents();
@@ -65,6 +68,12 @@ public class Loader {
 
                 Call.label(server.name, 200000, x, y);
             });
+
+            EffectHelper.onJoin(player);
+        });
+
+        Events.on(EventType.PlayerLeave.class, event -> {
+            EffectHelper.onLeave(event.player);
         });
 
         Events.on(PlayerMoveEvent.class, event -> {
@@ -77,6 +86,8 @@ public class Loader {
             if (portal != null) {
                 Call.connect(player.con, portal.ip, portal.port);
             }
+
+            EffectHelper.onMove(player);
         });
     }
 }
