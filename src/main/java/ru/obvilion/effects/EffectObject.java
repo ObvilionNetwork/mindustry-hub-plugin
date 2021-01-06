@@ -10,10 +10,10 @@ public class EffectObject {
     public final Color color;
 
     public final int rotation;
-    public final int xPos;
-    public final int yPos;
+    public final float xPos;
+    public final float yPos;
 
-    public EffectObject(Effect effect, int x, int y, int rotation, Color color) {
+    public EffectObject(Effect effect, float x, float y, int rotation, Color color) {
         this.effect = effect;
         this.color = color;
         this.rotation = rotation;
@@ -27,6 +27,6 @@ public class EffectObject {
     }
 
     public void draw() {
-        Call.effect(effect, xPos * 8 + 4, yPos * 8 + 4, rotation, color);
+        Call.effect(effect, xPos * 8 - 4, yPos * 8 - 4, rotation, color);
     }
 }

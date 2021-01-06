@@ -55,8 +55,8 @@ public class EffectHelper {
             );
 
             final String[] positions = position.split(",");
-            final int x = Integer.parseInt(positions[0]);
-            final int y = Integer.parseInt(positions[1]);
+            final float x = Float.parseFloat(positions[0]);
+            final float y = Float.parseFloat(positions[1]);
 
             final Effect eff = getEffect(name);
             final EffectObject place = new EffectObject(eff, x, y, rotation, Color.valueOf(color));
