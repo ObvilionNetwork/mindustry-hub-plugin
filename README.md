@@ -5,7 +5,15 @@
 # ObvilionHub plugin
 This plugin adds HUB to your server.
 
-![alt text](https://media.discordapp.net/attachments/548917345318338582/796282215872462868/GIF_06.01.2021_10-35-12.gif?width=989&height=676)
+On join and leave effect <br/>
+![alt text](https://media.discordapp.net/attachments/548917345318338582/796282995563954197/unknown.png?width=711&height=676)
+
+Portal effects <br/>
+![alt text](https://media.discordapp.net/attachments/548917345318338582/796283400604483594/unknown.png?width=748&height=676)
+
+Player move effects <br/>
+![alt text](https://media.discordapp.net/attachments/548917345318338582/796283484770795570/unknown.png)
+
 
 ## The servers in the list cant use this plugin
 - mindustry.ru
