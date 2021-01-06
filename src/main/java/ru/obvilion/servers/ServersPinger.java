@@ -33,8 +33,8 @@ public class ServersPinger {
                     Call.label(Lang.get("server.online", host.players + ""), 10, x, y);
                 } else {
                     Call.label(
-                            Lang.get("server.online.limit", host.players + "", host.playerLimit + ""),
-                            10, x, y
+                        Lang.get("server.online.limit", host.players + "", host.playerLimit + ""),
+                        10, x, y
                     );
                 }
             }, e -> {
