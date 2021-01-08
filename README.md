@@ -17,7 +17,7 @@ This plugin adds HUB to your server.
 ## Installation
 
 Put the plugin in ``<server folder location>/config/mods`` folder.<br>
-Start the server: ``host Hub`` (You don't need to download the map)<br>
+Start the server: ``host ObvilionHub`` (You don't need to download the map)<br>
 Edit the configs in the ``<server folder location>/config/mods/ObvilionHub`` folder.<br>
 Enjoy the plugin
 
