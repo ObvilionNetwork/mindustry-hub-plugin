@@ -1,4 +1,4 @@
-logs/
+/logs/
 /server/
 /core/assets/mindustry-saves/
 /core/assets/mindustry-maps/
@@ -31,9 +31,7 @@ desktop-sdl/build/
 /core/assets/locales
 /ios/src/io/anuke/mindustry/gen/
 /core/src/io/anuke/mindustry/gen/
-ios/robovm.properties
-packr-out/
-config/
+/config/
 *.gif
 
 version.properties
