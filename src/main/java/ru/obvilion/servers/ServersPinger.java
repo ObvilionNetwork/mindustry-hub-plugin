@@ -13,11 +13,11 @@ public class ServersPinger {
 
     public static void init() {
         Timer.schedule(() -> {
+            online.set(0);
             update();
 
             Timer.schedule(() -> {
                 Core.settings.put("totalPlayers", online.get());
-                online.set(0);
             }, 3);
         }, 3, 10);
     }
