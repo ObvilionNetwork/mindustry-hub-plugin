@@ -88,5 +88,17 @@ public class Loader {
 
             EffectHelper.onMove(player);
         });
+
+        Events.on(EventType.TapEvent.class,event->{
+            final Player player = event.player;
+            final Server portal = ServersHelper.checkAll(
+                    event.tile.x,
+                    event.tile.y
+            );
+
+            if (portal != null) {
+                Call.connect(player.con, portal.ip, portal.port);
+            }
+        });
     }
 }
