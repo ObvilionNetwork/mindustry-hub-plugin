@@ -92,8 +92,8 @@ public class Loader {
         Events.on(EventType.TapEvent.class,event->{
             final Player player = event.player;
             final Server portal = ServersHelper.checkAll(
-                    (int) player.x / 8,
-                    (int) player.y / 8
+                    event.tile.x,
+                    event.tile.y
             );
 
             if (portal != null) {
