@@ -25,8 +25,11 @@ public class Loader {
         Config.init();
         Lang.init();
 
-        final Fi map = new Fi("config/maps/Hub.msav");
-        if (!map.exists()) ResourceUtil.copy("Hub.msav", map);
+        final Fi map = Vars.customMapDirectory.child("Hub.msav");
+        if (!map.exists()) {
+            ResourceUtil.copy("Hub.msav", map);
+            Vars.maps.reload();
+        }
 
         ServersHelper.init();
         AntiBuild.init();
@@ -44,9 +47,8 @@ public class Loader {
         Events.on(EventType.PlayEvent.class, event -> {
             Vars.state.rules.waves = false;
             Vars.state.rules.revealedBlocks.addAll(
-                Blocks.launchPad, Blocks.launchPadLarge, Blocks.interplanetaryAccelerator,
-                Blocks.resupplyPoint, Blocks.illuminator, Blocks.scrapWall,
-                Blocks.scrapWallGigantic, Blocks.scrapWallHuge, Blocks.scrapWallLarge
+                Blocks.launchPad, Blocks.interplanetaryAccelerator, Blocks.interplanetaryAccelerator,
+                Blocks.illuminator, Blocks.scrapWall, Blocks.scrapWallGigantic, Blocks.scrapWallHuge, Blocks.scrapWallLarge
             );
         });
 

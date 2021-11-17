@@ -1,6 +1,7 @@
 package ru.obvilion.servers;
 
 import mindustry.Vars;
+import mindustry.content.Blocks;
 import mindustry.world.Block;
 
 public class Server {
