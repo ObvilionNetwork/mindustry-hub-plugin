@@ -14,7 +14,7 @@ repositories {
 }
 
 ext {
-    mindustryVersion = 'v134'
+    mindustryVersion = 'v136'
     serverLink = "https://github.com/Anuken/Mindustry/releases/download/$mindustryVersion/server-release.jar"
 }
 
