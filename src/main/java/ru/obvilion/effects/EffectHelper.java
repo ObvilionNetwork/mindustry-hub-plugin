@@ -20,9 +20,12 @@ public class EffectHelper {
     public static ObjectMap<String, String> properties;
 
     public static Seq<Timer.Task> tasks = new Seq<>();
+    public static Seq<String> disabled_effects = new Seq<>();
 
     public static void init() {
         effects = new Seq<>();
+
+        disabled_effects = new Seq<>();
 
         tasks.forEach(Timer.Task::cancel);
         tasks = new Seq<>();
@@ -112,6 +115,16 @@ public class EffectHelper {
         );
 
         final Effect eff = getEffect(name);
+        if (eff == null) {
+            if (!disabled_effects.contains(key)) {
+                Log.warn("Effect with name @ not found!", name);
+
+                disabled_effects.add(key);
+            }
+
+            return;
+        }
+
         final EffectObject place = new EffectObject(eff, x, y, rotation, Color.valueOf(color));
 
         place.draw();
