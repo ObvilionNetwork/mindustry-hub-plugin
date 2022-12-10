@@ -17,11 +17,14 @@ public class Server {
     public final int upBorderX;
     public final int upBorderY;
 
-    public Server(String name, String ip, int port, String blockName, int blockX, int blockY) {
+    public final boolean notIncludeOnline;
+
+    public Server(String name, String ip, int port, String blockName, int blockX, int blockY, boolean notIncludeOnline) {
         this.block = Vars.content.block(blockName);
         this.name = name;
         this.ip = ip;
         this.port = port;
+        this.notIncludeOnline = notIncludeOnline;
 
         xPos = blockX;
         yPos = blockY;

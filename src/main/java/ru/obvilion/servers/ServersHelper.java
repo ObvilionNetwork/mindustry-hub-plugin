@@ -5,6 +5,7 @@ import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.io.PropertiesUtils;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import ru.obvilion.HubPlugin;
 import ru.obvilion.utils.ResourceUtil;
 
@@ -50,7 +51,8 @@ public class ServersHelper {
             final String name = all.get(i + ".name", "server-name"),
                     ip = all.get(i + ".ip", "localhost"),
                     block = all.get(i + ".block", "wall"),
-                    position = all.get(i + ".position", "0,0");
+                    position = all.get(i + ".position", "0,0"),
+                    notIncludeOnline = all.get(i + ".notIncludeOnline", "false");
 
             final int port = Integer.parseInt(
                     all.get(i + ".port", "6567")
@@ -61,8 +63,10 @@ public class ServersHelper {
             final int blockX = Integer.parseInt(positions[0]);
             final int blockY = Integer.parseInt(positions[1]);
 
+            final boolean _notIncludeOnline = Boolean.parseBoolean(notIncludeOnline);
+
             servers.add(
-                    new Server(name, ip, port, block, blockX, blockY)
+                    new Server(name, ip, port, block, blockX, blockY, _notIncludeOnline)
             );
         }
 

@@ -9,7 +9,7 @@ import ru.obvilion.utils.Loader;
 
 public class HubPlugin extends Plugin {
     public static final Fi pluginDir = new Fi("./config/mods/ObvilionHub");
-    public static final String VERSION = "0.4.2";
+    public static final String VERSION = "0.5";
 
     @Override
     public void init() {

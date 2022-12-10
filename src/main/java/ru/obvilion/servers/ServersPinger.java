@@ -23,12 +23,17 @@ public class ServersPinger {
     }
 
     public static void update() {
-        for(Server server : ServersHelper.servers){
+        for (Server server : ServersHelper.servers) {
+            if (server.notIncludeOnline) {
+                continue;
+            }
+
             final int x = (server.xPos * 8 + (server.block.size - 1) * 4);
             final int y = server.yPos * 8 - 8;
 
             Vars.net.pingHost(server.ip, server.port, host -> {
                 online.addAndGet(host.players);
+
                 if (host.playerLimit == 0) {
                     Call.label(Lang.get("server.online", host.players + ""), 10, x, y);
                 } else {
