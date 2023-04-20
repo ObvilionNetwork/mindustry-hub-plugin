@@ -12,12 +12,14 @@ public class AntiBuild {
 
     public static boolean onAction(PlayerAction action) {
         final Player player = action.player;
-        final boolean canBuild = player.admin && Config.getBoolean("adminCanBuild");
 
-        if (action.block != null || action.rotation != -1) {
-            return canBuild;
+        switch (Config.get("сanBuild")) {
+            case "player":
+                return true;
+            case "admin":
+                return player.admin;
+            default:
+                return false;
         }
-
-        return false;
     }
 }
