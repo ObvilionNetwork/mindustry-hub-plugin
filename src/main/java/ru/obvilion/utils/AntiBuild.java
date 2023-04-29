@@ -13,7 +13,7 @@ public class AntiBuild {
     public static boolean onAction(PlayerAction action) {
         final Player player = action.player;
 
-        switch (Config.get("сanBuild")) {
+        switch (Config.get("canBuild")) {
             case "player":
                 return true;
             case "admin":
