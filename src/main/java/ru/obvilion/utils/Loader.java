@@ -56,9 +56,19 @@ public class Loader {
             final Player player = event.player;
             final Rules rules = Vars.state.rules.copy();
 
-            if (!player.admin) {
-                rules.bannedBlocks.addAll(Vars.content.blocks());
+            switch (Config.get("canBuild")) {
+                case "player":
+                    break;
+                case "admin":
+                    if (!player.admin) {
+                        rules.bannedBlocks.addAll(Vars.content.blocks());
+                    }
+                    break;
+                default:
+                    rules.bannedBlocks.addAll(Vars.content.blocks());
+                    break;
             }
+
 
             Call.setRules(player.con, rules);
 
