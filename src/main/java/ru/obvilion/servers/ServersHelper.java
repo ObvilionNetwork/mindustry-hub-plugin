@@ -5,7 +5,6 @@ import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.io.PropertiesUtils;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import ru.obvilion.HubPlugin;
 import ru.obvilion.utils.ResourceUtil;
 
