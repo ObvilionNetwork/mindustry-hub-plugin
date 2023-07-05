@@ -33,9 +33,12 @@ public class Loader {
 
         ServersHelper.init();
         AntiBuild.init();
-        EventsHelper.init();
         ServersPinger.init();
         EffectHelper.init();
+
+        if (!Config.getBoolean("clickOnly")) {
+            EventsHelper.init();
+        }
 
         if (firstInit) {
             initEvents();
@@ -46,9 +49,11 @@ public class Loader {
     public static void initEvents() {
         Events.on(EventType.PlayEvent.class, event -> {
             Vars.state.rules.waves = false;
+
             Vars.state.rules.revealedBlocks.addAll(
                 Blocks.launchPad, Blocks.interplanetaryAccelerator, Blocks.interplanetaryAccelerator,
-                Blocks.illuminator, Blocks.scrapWall, Blocks.scrapWallGigantic, Blocks.scrapWallHuge, Blocks.scrapWallLarge
+                Blocks.illuminator, Blocks.scrapWall, Blocks.scrapWallGigantic, Blocks.scrapWallHuge,
+                Blocks.scrapWallLarge
             );
         });
 
@@ -90,8 +95,8 @@ public class Loader {
         Events.on(PlayerMoveEvent.class, event -> {
             final Player player = event.player;
             final Server portal = ServersHelper.checkAll(
-                (int) player.x / 8,
-                (int) player.y / 8
+                    (int) player.x / 8,
+                    (int) player.y / 8
             );
 
             if (portal != null) {

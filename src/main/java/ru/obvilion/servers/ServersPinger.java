@@ -49,7 +49,7 @@ public class ServersPinger {
                 Call.label(Lang.get("server.offline"), 10, x, y);
             });
         }
-        
+
         online.addAndGet(Groups.player.size());
     }
 }

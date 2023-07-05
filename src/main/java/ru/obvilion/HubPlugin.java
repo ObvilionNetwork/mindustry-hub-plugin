@@ -9,7 +9,7 @@ import ru.obvilion.utils.Loader;
 
 public class HubPlugin extends Plugin {
     public static final Fi pluginDir = new Fi("./config/mods/ObvilionHub");
-    public static final String VERSION = "0.6.1";
+    public static final String VERSION = "0.7.1";
 
     @Override
     public void init() {
@@ -27,7 +27,7 @@ public class HubPlugin extends Plugin {
             }
 
             if (arg[0].equals("version")) {
-                Log.info("ObvilionNetworkHub v@ by Fatonn", VERSION);
+                Log.info("Obvilion Hub v@ by Fatonn", VERSION);
                 Log.info("> Github link: https://github.com/ObvilionNetwork/mindustry-hub-plugin");
                 Log.info("> Discord server link: https://discord.gg/cg82mjh");
                 return;
