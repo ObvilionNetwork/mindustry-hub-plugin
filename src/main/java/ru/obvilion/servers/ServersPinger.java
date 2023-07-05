@@ -4,6 +4,9 @@ import arc.Core;
 import arc.util.Timer;
 import mindustry.Vars;
 import mindustry.gen.Call;
+import mindustry.gen.Groups;
+import mindustry.gen.Player;
+import mindustry.logic.LExecutor;
 import ru.obvilion.config.Lang;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -46,5 +49,7 @@ public class ServersPinger {
                 Call.label(Lang.get("server.offline"), 10, x, y);
             });
         }
+        
+        online.addAndGet(Groups.player.size());
     }
 }
